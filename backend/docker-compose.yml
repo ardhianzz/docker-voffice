@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: s2p-backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8088:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - PHP_MEMORY_LIMIT=1280M
+    networks:
+      - app-v-office
+  
+  db:
+    image: postgres:13
+    container_name: lumen_postgres
+    environment:
+      POSTGRES_USER: lumenuser
+      POSTGRES_PASSWORD: lumenpassword
+      POSTGRES_DB: lumendb
+    ports:
+      - "5433:5432"
+    networks:
+      - app-v-office
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+networks:
+  app-v-office:
+
+volumes:
+  postgres-data:
