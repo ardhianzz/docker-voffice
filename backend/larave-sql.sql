@@ -2,6 +2,12 @@
 -- untuk restore dari database production 
 -- perlu membuat role "postgres", dengan atribut:
 -- postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS
+
+-- RESTORE DARI DATABASE PRODUCTION
+-- pg_restore -h localhost -p 5433 -U lumenuser -d {NAMA DATABASE} --no-owner ./{NAMA FILE}
+
+
+
 CREATE ROLE postgres WITH 
     SUPERUSER
     CREATEDB
