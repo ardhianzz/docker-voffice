@@ -1,5 +1,5 @@
 # Gunakan PHP 7.3 dengan Apache sebagai base image
-FROM php:7.2-apache
+FROM php:7.3-apache
 
 # Install ekstensi PHP yang dibutuhkan
 RUN apt-get update && apt-get install -y \
