@@ -34,12 +34,13 @@ COPY ./.env .
 
 # Atur izin
 RUN chown -R root:www-data /var/www/html
+RUN chmod -R 777 /var/www/html/storage
 
 # Install dependensi dengan Composer
 #RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-interaction
 
 # Set memory limit PHP
-RUN echo "memory_limit=1280M" > /usr/local/etc/php/conf.d/memory-limit.ini
+RUN echo "memory_limit=2560M" > /usr/local/etc/php/conf.d/memory-limit.ini
 
 # Expose port 80
 EXPOSE 80
