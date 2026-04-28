@@ -29,7 +29,8 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 # Salin semua file ke kontainer
-COPY . /var/www/html/
+# Sesuaikan dengan folder project 
+COPY . /var/www/html/ 
 COPY ./.env .
 
 # Atur izin
